@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Cumpleaños Ruby 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: linear-gradient(135deg, #fde2e4, #e0f7fa);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      color: #444;
+      padding: 40px 0;
+    }
+
+    /* 🌸 Fondo animado */
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 20px;
+      animation: float 12s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0) scale(1);
+      }
+
+      to {
+        transform: translateY(-110vh) scale(1.4);
+      }
+    }
+
+    /* 🌷 Contenedor */
+    .container {
+      position: relative;
+      z-index: 1;
+      background: #ffffffdd;
+      padding: 40px;
+      border-radius: 25px;
+      width: 85%;
+      max-width: 650px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+      color: #e91e63;
+      margin-bottom: 10px;
+      animation: slideDown 1.2s ease;
+    }
+
+    .mensaje {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    h2 {
+      color: #8e24aa;
+      margin-bottom: 20px;
+    }
+
+    /* 🎠 Carrusel */
+    .carousel-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .arrow {
+      font-size: 2rem;
+      cursor: pointer;
+      color: #ab47bc;
+      transition: transform 0.2s, color 0.2s;
+      user-select: none;
+    }
+
+    .arrow:hover {
+      transform: scale(1.2);
+      color: #e91e63;
+    }
+
+    .carousel {
+      background: #f3e5f5;
+      padding: 25px;
+      border-radius: 18px;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.5;
+      transition: opacity 0.4s ease, transform 0.3s ease;
+      font-size: 1.05rem;
+    }
+
+    /* 🎵 Botón música */
+    .music-btn {
+      margin-top: 25px;
+      padding: 10px 18px;
+      border-radius: 30px;
+      border: none;
+      background: #e91e63;
+      color: white;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    /* 🔐 Motivos secretos */
+    .secret-box {
+      margin-top: 25px;
+      padding: 15px;
+      background: #fff3e0;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    .secret-box:hover {
+      background: #ffe0b2;
+      transform: scale(1.02);
+    }
+
+    .secret-text {
+      display: none;
+      margin-top: 10px;
+      color: #6a1b9a;
+    }
+
+    /* 💌 Carta final */
+    .letter-btn {
+      margin-top: 35px;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 30px;
+      background: #8e24aa;
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .letter-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 5;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .letter {
+      background: white;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: left;
+      line-height: 1.6;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .close-btn {
+      margin-top: 15px;
+      padding: 8px 15px;
+      border: none;
+      background: #e91e63;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-30px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🌸 Corazones -->
+  <div class="hearts">
+    <span class="heart" style="left:10%; animation-delay:0s;">💗</span>
+    <span class="heart" style="left:25%; animation-delay:3s;">💖</span>
+    <span class="heart" style="left:40%; animation-delay:6s;">💞</span>
+    <span class="heart" style="left:55%; animation-delay:1s;">💘</span>
+    <span class="heart" style="left:70%; animation-delay:4s;">💕</span>
+    <span class="heart" style="left:85%; animation-delay:7s;">💓</span>
+  </div>
+
+  <div class="container">
+
+    <h1>Feliz Cumpleaños, Ruby 💕</h1>
+
+    <p class="mensaje">
+      Hoy es un día especial porque cumple años una personita que,
+      aunque lleva relativamente poco tiempo en mi vida,
+      ha logrado convertirse en alguien muy importante para mí.<br><br>
+
+      Y quién diría que justo poco después de convertirnos en pareja,
+      tendría la oportunidad de celebrar también tu cumpleaños.
+      Así que quise hacerte este pequeño espacio para recordarte
+      lo especial que eres para mí y sacarte aunque sea una pequeña sonrisa.
+    </p>
+
+    <h2>17 motivos por los que te quiero 💖</h2>
+
+    <div class="carousel-wrapper">
+      <span class="arrow" onclick="prev()">&#10094;</span>
+
+      <div class="carousel" id="carousel"></div>
+
+      <span class="arrow" onclick="next()">&#10095;</span>
+    </div>
+
+    <button class="music-btn" onclick="toggleMusic(event)">
+      🎵 Reproducir música
+    </button>
+
+    <!-- 🔐 Motivos secretos -->
+    <div class="secret-box" onclick="toggleSecret(0)">
+      🔐 Motivo secreto #1 (haz click)
+
+      <div class="secret-text">
+        Porque me gusta esa confianza que tienes conmigo,
+        esa que hace que una chica seria se convierta en mi niña chiquita.
+      </div>
+    </div>
+
+    <div class="secret-box" onclick="toggleSecret(1)">
+      🔐 Motivo secreto #2 (haz click)
+
+      <div class="secret-text">
+        Porque nunca sé si voy a recibir una muestra de cariño
+        o un chocolate de puntuación cuando empiezo a molestarte. 😂🍫
+      </div>
+    </div>
+
+    <!-- 💌 Carta -->
+    <button class="letter-btn" onclick="openLetter()">
+      💌 Leer carta final
+    </button>
+
+  </div>
+
+  <!-- Overlay carta -->
+  <div class="letter-overlay" id="letterOverlay">
+
+    <div class="letter">
+
+      <h2>Para ti, mi chiquita 💖</h2>
+
+      <p>
+        Hoy cumples 17 años y quería aprovechar este día para hacerte
+        un pequeño detalle. Puede que llevemos poco tiempo juntos,
+        pero en este primer mes has conseguido ganarte un lugar muy
+        especial en mi corazón.
+      </p>
+
+      <p>
+        Me gusta mucho la persona que eres. Eres alguien seria cuando
+        las cosas lo requieren, responsable y con una personalidad que
+        sabe cuándo ponerse firme. Pero también me encanta ese lado
+        tuyo que aparece cuando estás conmigo, esa niña chiquita que
+        juega, se pone nerviosa y se deja llevar por la confianza que
+        hemos construido.
+      </p>
+
+      <p>
+        Creo que una de las cosas que más me gusta de nosotros es que
+        podemos simplemente ser nosotros mismos. No tengo que fingir
+        ser alguien diferente contigo y tú tampoco tienes que hacerlo
+        conmigo. Podemos molestarnos, jugar, reírnos de cualquier cosa
+        y disfrutar de esos pequeños momentos que terminan siendo
+        especiales.
+      </p>
+
+      <p>
+        Sabes, algo que también me encanta de ti es tu lado competitivo y lo mucho que te esfuerzas.
+        Sinceramente quiero seguir creando recuerdos contigo,
+        seguir celebrando ocasiones especiales junto a tí. 
+        Y aunque la distancia no ayude ahora, ya a futuro podremos estar juntos
+        y seguiremos escribiendo nuestra historia.
+      </p>
+
+      <p>
+        Apenas estamos comenzando nuestra historia y todavía nos queda
+        muchísimo por conocer, aprender y vivir juntos. Pero me hace
+        feliz poder compartir este momento contigo y estar presente
+        para celebrar tus 17 años.
+      </p>
+
+      <p>
+        Feliz cumpleaños, Ruby. 💕
+      </p>
+
+      <p>
+        Gracias por permitirme conocerte tal como eres y por dejarme
+        formar parte de tu vida.
+      </p>
+
+      <p>
+        Te quiero mucho, mi chiquita. 💖
+      </p>
+
+      <button class="close-btn" onclick="closeLetter()">
+        Cerrar
+      </button>
+
+    </div>
+
+  </div>
+
+  <audio id="music" src="Bruno.mp3"></audio>
+
+  <script>
+
+    const motivos = [
+
+    "1. Me encanta tu sonrisa, incluso cuando solo puedo verla a través de una pantalla. De alguna manera, siempre consigue alegrarme el día.",
+
+    "2. Admiro que seas una persona seria cuando la situación lo requiere, pero que conmigo puedas dejar salir ese lado de niña chiquita que posees.",
+
+    "3. La distancia podrá hacer que no podamos estar físicamente juntos, pero no ha impedido que construyamos una confianza que para mí significa muchísimo.",
+
+    "4. Me encanta que contigo puedo ser completamente yo. No tengo que pensar demasiado en qué decir o cómo actuar, simplemente puedo ser Antonio y molestarte como siempre.",
+
+    "5. Me parece demasiado tierna la manera en que a veces te pones nerviosa conmigo, incluso cuando probablemente intentas disimularlo.",
+
+    "6. Admiro muchísimo la pasión que tienes por el básquet. Se nota que no lo haces simplemente por jugar, sino porque realmente te gusta y forma parte de ti.",
+
+    "7. Me encanta ver todo el esfuerzo que pones en el básquet. Sé que no siempre es fácil y aun así sigues esforzándote por mejorar y dar lo mejor de ti.",
+
+    "8. Me hace sentir orgulloso verte perseguir algo que te apasiona. Aunque esté lejos, siempre voy a querer verte cumplir cada una de esas metas que te propongas.",
+
+    "9. Me encanta que podamos compartir momentos incluso estando lejos, ya sea hablando, jugando o simplemente molestándonos por cualquier tontería.",
+
+    "10. Porque nuestras partidas tienen de todo: Momentos en los que juegas como toda una profesional y otros en los que aparecen tus famosas puntuaciones de chocolate.",
+
+    "11. Me gusta molestarte con lo del chocolate, pero también me gusta que tengas la confianza de seguir jugando conmigo y devolverme las bromas.",
+
+    "12. A pesar de llevar poco tiempo juntos, has conseguido que la distancia no se sienta tan grande cuando estamos hablando o compartiendo algún momento.",
+
+    "13. Me gusta conocer poco a poco cada parte de ti: la chica seria, la deportista, la competitiva, la nerviosa y también esa niña chiquita que aparece cuando estamos juntos.",
+
+    "14. Valoro cada pequeño detalle que tienes conmigo, porque cuando estamos lejos son precisamente esas pequeñas cosas las que hacen que me sienta cerca de ti.",
+
+    "15. Me encanta que podamos reírnos, molestarnos y pasarla bien sin necesidad de estar en el mismo lugar. Creo que esa confianza que tenemos es algo muy bonito.",
+
+    "16. Apenas estamos comenzando nuestra historia, pero me hace ilusión pensar en todos los momentos que todavía nos quedan por compartir, tanto a distancia como cuando finalmente podamos estar juntos.",
+
+    "17. Y simplemente porque eres Ruby. Por tu forma de ser, por tu manera de esforzarte, por tus locuras, tus nervios, tus bromas, tu amor por el básquet y por esa versión de ti que solo aparece cuando tienes confianza. Te quiero por ser tú. 💖"
+
+    ];
+
+
+    let index = 0;
+
+    const carousel = document.getElementById("carousel");
+
+    carousel.textContent = motivos[0];
+
+    function showMotivo() {
+
+      carousel.style.opacity = 0;
+
+      setTimeout(() => {
+
+        carousel.textContent = motivos[index];
+
+        carousel.style.opacity = 1;
+
+      }, 200);
+
+    }
+
+    function next() {
+
+      index = (index + 1) % motivos.length;
+
+      showMotivo();
+
+    }
+
+    function prev() {
+
+      index = (index - 1 + motivos.length) % motivos.length;
+
+      showMotivo();
+
+    }
+
+
+    /* 🎵 Música */
+
+    const music = document.getElementById("music");
+
+    music.volume = 0.2;
+
+    let playing = false;
+
+    function toggleMusic(e) {
+
+      if (!playing) {
+
+        music.play();
+
+        e.target.textContent = "⏸ Pausar música";
+
+      } else {
+
+        music.pause();
+
+        e.target.textContent = "🎵 Reproducir música";
+
+      }
+
+      playing = !playing;
+
+    }
+
+
+    /* 🔐 Secretos */
+
+    function toggleSecret(i) {
+
+      const texts = document.querySelectorAll(".secret-text");
+
+      texts[i].style.display =
+        texts[i].style.display === "block"
+          ? "none"
+          : "block";
+
+    }
+
+
+    /* 💌 Carta */
+
+    function openLetter() {
+
+      document.getElementById("letterOverlay").style.display = "flex";
+
+    }
+
+    function closeLetter() {
+
+      document.getElementById("letterOverlay").style.display = "none";
+
+    }
+
+  </script>
+
+</body>
+</html>
